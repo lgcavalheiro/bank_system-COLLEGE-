@@ -14,6 +14,11 @@ public class ContaPoupanca extends ContaBancaria {
 	public void setLimite(double limite) {
 		this.limite = limite;
 	}
+	
+	public void sacar(double valor) {
+		if (this.saldo - valor >= 0.0) this.saldo -= valor;
+		else if (this.limite - valor >= 0.0) this.limite -= valor;
+	}
 
 	@Override
 	public String mostrarDados() {

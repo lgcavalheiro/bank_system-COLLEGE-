@@ -14,12 +14,14 @@ public class ContaCorrente extends ContaBancaria{
 	public void setTaxaDeOperacao(double taxaDeOperacao) {
 		this.taxaDeOperacao = taxaDeOperacao;
 	}
+	
+	public void sacar(double valor) {
+		double valorCorrente = valor + (valor * this.taxaDeOperacao) / 100;
+		if (this.saldo - valorCorrente >= 0.0) this.saldo -= valorCorrente;
+	}
 
 	@Override
 	public String mostrarDados() {
-		System.out.println("Número: " + this.getNumero());
-		System.out.println("Saldo: " + this.getSaldo());
-		System.out.println("Taxa: " + this.taxaDeOperacao);
 		return "Número: " + this.getNumero() + "\n" +
 				"Saldo: " + this.getSaldo() + "\n" +
 				"Taxa: " + this.taxaDeOperacao + "\n";

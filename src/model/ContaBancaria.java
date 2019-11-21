@@ -3,7 +3,7 @@ import control.Imprimivel;
 
 public abstract class ContaBancaria implements Imprimivel<ContaBancaria>{
 	private long numero;
-	private double saldo;
+	protected double saldo;
 	
 	public ContaBancaria(long numero, double saldo) {
 		this.numero = numero;
@@ -28,12 +28,10 @@ public abstract class ContaBancaria implements Imprimivel<ContaBancaria>{
 
 	public void depositar(double valor) {
 		this.saldo += valor;
-		System.out.println(this.saldo);
 	}
 	
 	public void sacar(double valor) {
-		if (this.saldo - valor > 0.0) this.saldo -= valor;
-		System.out.println(this.saldo);
+		if (this.saldo - valor >= 0.0) this.saldo -= valor;
 	}
 	
 	public void transferir(double valor, ContaBancaria ContaDe, ContaBancaria ContaPara) {

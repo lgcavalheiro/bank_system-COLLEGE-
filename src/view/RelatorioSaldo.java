@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import model.Banco;
 import model.ContaBancaria;
+import model.Relatorio;
 
 /**
  *
@@ -22,6 +23,7 @@ public class RelatorioSaldo extends javax.swing.JInternalFrame {
      */
 	
 	public int modoRelatorio = 0;
+	public Relatorio relatorio = new Relatorio();
 	
     public RelatorioSaldo() {
         initComponents();
