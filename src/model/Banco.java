@@ -2,18 +2,24 @@ package model;
 import java.util.ArrayList;
 
 public class Banco {
-	static ArrayList<ContaBancaria> Contas = new ArrayList<>();
+	public static ArrayList<ContaBancaria> Contas = new ArrayList<>();
 	
-	public void inserir(ContaBancaria conta) {
-		//adicionar funcionalidades
+	public static void inserir(ContaBancaria conta) {
+		Contas.add(conta);
 	}
 	
-	public void remover(long numero) {
-		//adicionar funcionalidades
+	public static void remover(long numero) {
+		for(ContaBancaria conta : Contas) {
+			if(conta.getNumero() == numero) Contas.remove(conta);
+		}
 	}
 	
-	public ContaBancaria procurarConta(long numero) {
-		//adicionar funcionalidades
+	public static ContaBancaria procurarConta(long numero) {
+		for(ContaBancaria conta : Contas) {
+			if(conta.getNumero() == numero) {
+				return conta;
+			} 
+		}
 		return null;
 	}
 }
